@@ -1,0 +1,55 @@
+---
+//import { news } from '../data/news'
+//const response = await fetch("http://localhost:3000/news")
+//const news = await response.json() 
+export interface Props {
+  news: string[]
+}
+
+const {
+  news
+} = Astro.props
+console.log(news)
+---
+<main class="mn-parent">
+
+  {
+    news.map (({url, image, title, summary}) => {
+      return (
+        <section class="mn-section">
+          <article class="mn-article">
+            <a 
+              href={url}
+              class="mn-anchor"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Read more ...">
+              <img
+                alt=""
+                src={image} 
+                class="mn-image"/>
+            </a>
+
+            <div class="mn-title">
+              <a 
+                href={url}
+                class="mn-anchor"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Read more ...">
+                <strong>
+                  {title}
+                </strong>
+              </a>
+              <p class="mn-summary">
+                {summary}
+              </p>
+            </div>
+          </article>
+
+          <hr class="mn-line"/>
+        </section>
+     )
+    })
+  }
+</main>

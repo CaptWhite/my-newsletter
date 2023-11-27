@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Head from "../components/Head.astro";
+import Main from '../components/Main.astro';
+import Footer from '../components/Footer.astro';
+//const response = await fetch("http://localhost:3000/data")
+const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
+const {sequence, date, news} = await response.json() 
+---
+<Layout>
+    <Head seq={sequence} date={date}/>
+    <Main news={news}/>
+    <Footer/>
+<style is:global>
+  .container {
+    display: flex; 
+    flex-direction: column
+  }
+  .hd-parent {
+    background-image: url(https://res.cloudinary.com/captwhite-angularadv/image/upload/v1700850212/Aster/Sol.png);
+    background-size: cover;
+    border-top: 0px;
+    border-bottom: 0px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 800px;
+    height: 250px;
+    margin: auto;
+  }
+  .hd-item {
+    margin: auto; 
+    text-align: center
+  }
+  .hd-text {
+    color: #007c89;
+    font-size: 16px;
+    font-family: Helvetica;
+    line-height: 150%;
+    font-weight: bold;
+  }
+  .mn-parent {
+    display: flex; align-items: center; flex-direction: column
+  }
+  .mn-section {
+    padding-top: 4px; 
+    padding-bottom: 4px; 
+    max-width: 600px
+  }
+  .mn-article {
+    display: flex; 
+    flex-direction: column;
+    gap: 16px; 
+    align-items: center;
+    padding:20px
+
+  }
+  @media only screen and (min-width: 400px) {
+    .mn-article {
+    display: flex; 
+    flex-direction: row;
+    gap: 16px; 
+    align-items: center;
+    }
+  } 
+
+
+  .mn-anchor {
+    color: #007c89; 
+    font-weight: normal; 
+    text-decoration: none
+  }
+  .mn-image {
+    border: 2px solid rgb(0, 124, 137); 
+    width: 200px
+  }
+  .mn-title {
+    font-family: Helvetica;
+    text-align: left;
+    line-height: 140%;
+    font-size: 17px; 
+    color: #2a7886
+
+  }
+  .mn-summary {
+    margin: 10px 0px;
+    color: #757575;
+    font-family: open sans, helvetica neue, helvetica, arial,sans-serif;
+    font-size: 15px;
+  }
+  .mn-line {
+    margin: 10px 0 20px; 
+    border: 1px solid #e0e0e0
+  }
+  .ft-typo {
+    color: #757575;
+    font-family: open sans, helvetica neue, helvetica, arial, sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .ft-section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 0px 20px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 600px
+  }
+  .ft-section2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 0px 20px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 600px
+  }
+  .ft-section3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 0px 20px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 600px
+  }
+</style>
+</Layout>
