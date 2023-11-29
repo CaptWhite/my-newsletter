@@ -2,16 +2,29 @@
 //import { news } from '../data/news'
 //const response = await fetch("http://localhost:3000/news")
 //const news = await response.json() 
-export interface Props {
-  news: string[]
+type News = {
+  order: number;
+  category: string;
+  url: string;
+  image: string;
+  title: string;
+  summary: string
 }
 
-const {
-  news
-} = Astro.props
-console.log(news)
+type NewsGroupedBy = {
+  category: string;
+  news: News;
+}
+export interface Props {
+  news: News[]
+}
+export interface Props {
+  news: News[]
+}
+
+const { news } = Astro.props
+
 ---
-<main class="mn-parent">
 
   {
     news.map (({url, image, title, summary}) => {
@@ -42,7 +55,9 @@ console.log(news)
                 </strong>
               </a>
               <p class="mn-summary">
-                {summary}
+                <span style="white-space: pre-line">
+                  {summary}
+              </span>
               </p>
             </div>
           </article>
@@ -52,4 +67,3 @@ console.log(news)
      )
     })
   }
-</main>

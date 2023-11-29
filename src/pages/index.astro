@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Head from "../components/Head.astro";
-import Main from '../components/Main.astro';
+import Main1 from '../components/Main1.astro';
 import Footer from '../components/Footer.astro';
-//const response = await fetch("http://localhost:3000/data")
-const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
+const response = await fetch("http://localhost:3000/data")
+//const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
 const {sequence, date, news} = await response.json() 
 ---
 <Layout>
     <Head seq={sequence} date={date}/>
-    <Main news={news}/>
+    <Main1 news={news}/>
     <Footer/>
 <style is:global>
   .container {
@@ -26,11 +26,11 @@ const {sequence, date, news} = await response.json()
     display: flex;
     align-items: center;
     justify-content: end;
-    width: 800px;
-    height: 250px;
+    max-width: 800px;
+    max-height: 250px;
     margin: auto;
   }
-  .hd-item {
+   .hd-item {
     margin: auto; 
     text-align: center
   }
@@ -47,7 +47,7 @@ const {sequence, date, news} = await response.json()
   .mn-section {
     padding-top: 4px; 
     padding-bottom: 4px; 
-    max-width: 600px
+    max-width: 800px
   }
   .mn-article {
     display: flex; 
@@ -55,8 +55,10 @@ const {sequence, date, news} = await response.json()
     gap: 16px; 
     align-items: center;
     padding:20px
-
   }
+
+ 
+
   @media only screen and (min-width: 400px) {
     .mn-article {
     display: flex; 
@@ -64,7 +66,14 @@ const {sequence, date, news} = await response.json()
     gap: 16px; 
     align-items: center;
     }
-  } 
+    .mn-parent :nth-child(even) :nth-child(1) a {
+      order:2;
+  }
+  
+  .mn-parent :nth-child(even) :nth-child(1) div {
+    order:1;
+  }   
+  }
 
 
   .mn-anchor {
@@ -73,8 +82,9 @@ const {sequence, date, news} = await response.json()
     text-decoration: none
   }
   .mn-image {
-    border: 2px solid rgb(0, 124, 137); 
-    width: 200px
+    width: 300px;
+    object-fit: scale-down;
+    aspect-ratio: 3/2;
   }
   .mn-title {
     font-family: Helvetica;
@@ -83,7 +93,7 @@ const {sequence, date, news} = await response.json()
     font-size: 17px; 
     color: #2a7886
 
-  }
+  } 
   .mn-summary {
     margin: 10px 0px;
     color: #757575;
