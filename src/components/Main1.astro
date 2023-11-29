@@ -48,7 +48,9 @@ const newsGruopedBy = newsSorted.reduce(function (acc, obj) {
   {
     Object.keys(newsGruopedBy).map((category) => {
       return (
-        <h1>{category}</h1>
+        <div class="mn-title">
+          <h1>{category}</h1>
+        </div>
         <Main2 news={newsGruopedBy[category]} />
       )
     })

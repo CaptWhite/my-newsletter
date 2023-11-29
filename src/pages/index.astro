@@ -40,9 +40,15 @@ const {sequence, date, news} = await response.json()
     font-family: Helvetica;
     line-height: 150%;
     font-weight: bold;
+    margin: auto;
+    text-align: center;
   }
   .mn-parent {
     display: flex; align-items: center; flex-direction: column
+  }
+  .mn-title {
+    margin:auto;
+    text-align: center;
   }
   .mn-section {
     padding-top: 4px; 
@@ -59,7 +65,7 @@ const {sequence, date, news} = await response.json()
 
  
 
-  @media only screen and (min-width: 400px) {
+  @media only screen and (min-width: 480px) {
     .mn-article {
     display: flex; 
     flex-direction: row;
