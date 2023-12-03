@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Head2 from "../components2/Head2.astro";
+import Main21 from '../components2/Main21.astro';
+import Footer2 from '../components2/Footer2.astro';
+//const response = await fetch("http://localhost:3000/data")
+const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
+const {sequence, date, news} = await response.json() 
+
+---
+<Layout>
+    <Head2 seq={sequence} date={date}/>
+    <Main21 cont="0" news={news} />
+    <Footer2/> 
+</Layout>
+
+<script>
+    window.addEventListener('load', function() {console.log('La página ha terminado de cargarse!!');})
+        // esta función se ejecutará con el evento onload() de body
+        function altura(){
+            document.getElementById('prueba').innerHTML = screen.height+'';
+            console.log("aaaaaa")
+        }
+    
+      </script>

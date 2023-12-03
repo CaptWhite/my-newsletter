@@ -1,0 +1,58 @@
+---
+//import { news } from '../data/news'
+//const response = await fetch("http://localhost:3000/news")
+
+import Main2 from './Main2.astro';
+
+//const news = await response.json() 
+type News = {
+  order: number;
+  category: string;
+  url: string;
+  image: string;
+  title: string;
+  summary: string
+}
+
+type NewsGroupedBy = {
+  category: string;
+  news: News;
+}
+export interface Props {
+  news: News[]
+}
+
+const { news } = Astro.props
+
+const newsSorted = news.slice().sort(function(a, b) {
+  return a.order - b.order;
+})
+
+const newsGruopedBy = newsSorted.reduce(function (acc, obj) {
+    const keyValue = obj['category'];
+    if (!acc[keyValue]) {
+      acc[keyValue] = [];
+    }
+    acc[keyValue].push(obj);
+    return acc;
+  }, {});
+
+/*   Object.keys(newsGruopedBy).forEach((category) => {
+      console.log(`<h1>${category}</h1>`)
+      console.log(`<Main2 news=${newsGruopedBy[category]} />`)
+    }) */
+  
+---
+<main class="mn-parent">
+
+  {
+    Object.keys(newsGruopedBy).map((category) => {
+      return (
+        <div class="mn-title">
+          <h1>{category}</h1>
+        </div>
+        <Main2 news={newsGruopedBy[category]} />
+      )
+    })
+  }
+</main>

@@ -1,0 +1,22 @@
+---
+export interface Props {
+  seq: string
+  date: string
+}
+
+const {
+  seq,
+  date
+} = Astro.props
+---
+
+<header class="hd-parent">
+  <div class="hd-item hd-text">
+      <img
+        alt="Logo de Aster"
+        src="https://www.aster.cat/images/carousel01-75.jpg"
+        width=80%
+        style="object-fit: scale-down;">
+      <p><span style="margin:auto; text-align:center;">Núm {seq}&nbsp;- {date}</span></p>
+  </div>
+</header>
