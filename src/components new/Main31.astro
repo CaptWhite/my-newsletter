@@ -1,0 +1,43 @@
+---
+import Main311  from './Main311.astro';
+import Main312 from './Main312.astro';
+import Main313 from './Main313.astro';
+type News = {
+  order: number;
+  category: string;
+  url: string;
+  image: string;
+  title: string;
+  summary: string
+}
+
+export interface Props {
+  news: News
+}
+
+const {news} = Astro.props
+const {order,category, url, image, title, summary} = news
+
+---
+{
+
+<table class="row row-3" align="center" width="100%">
+  <tbody>
+    <tr>
+      <td>
+        
+        <table class="row-content stack mn-row-content-article" align="center" width="800" >
+          <tbody>
+            <tr>
+              <Main311  news={news}/>
+              <Main312  news={news}/>
+            </tr>
+          </tbody>
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
