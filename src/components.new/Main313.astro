@@ -16,10 +16,9 @@ const {news} = Astro.props
 const {order,category, url, image, title, summary} = news
 console.log('left')
 ---
-<td class="column column-2 mn-column2-article" width="60%">
-  <table class="heading_block block-1" width="100%">
-    <tr>
-      <td class="column column-1 mn-column1-article" width="33.333333333333336%">
+
+
+<td class="column column-1 mn-column1-article" width="40%">
   <table class="image_block block-1" width="100%">
     <tr>
       <td class="pad mn-pad-article-image">
@@ -32,6 +31,27 @@ console.log('left')
                 alt={title}>
             </a>
           </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</td>
+<td class="column column-2 mn-column2-article" width="40%">
+  <table class="heading_block block-1 " width="100%">
+    <tr>
+      <td class="pad mn-pad-title-h1">
+        <h1 class="mn-h1-article-title"><span class="tinyMce-placeholder">
+          <a  href={url}
+              target="_blank" class="mn-anchor-article-title" rel="noopener">{title}</a></span></h1>
+      </td>
+    </tr>
+  </table>
+  <table class="paragraph_block block-2 mn-paragraph_block2" width="100%">
+    <tr>
+      <td class="pad mn-pad-title-p">
+        <div class="mn-div-title-p">
+          <p class="mn-paragraph-article-p">{summary}
+          </p>
         </div>
       </td>
     </tr>

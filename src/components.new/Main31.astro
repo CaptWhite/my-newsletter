@@ -1,0 +1,58 @@
+---
+import Main311  from './Main311.astro';
+import Main312 from './Main312.astro';
+
+type News = {
+  order: number;
+  category: string;
+  url: string;
+  image: string;
+  title: string;
+  summary: string
+}
+
+type Reverse = {
+  rever: string;
+  first: string;
+  last: string;
+}
+
+export interface Props {
+  news: News;
+}
+
+const {news } = Astro.props
+const {order,category, url, image, title, summary} = news
+const reverse: Reverse =  (order%2 == 0) 
+  ? {rever:'reverse', first:'first', last:'last'} 
+  : {rever:'', first:'', last:''}  
+
+---
+{
+<!-- ARTICLE -->
+<table class="row row-3" align="center" width="100%">
+  <tbody>
+    <tr>
+      <td>
+        
+        <table class="row-content stack mn-row-content-article" align="center" width="800" >
+          <tbody>
+            <tr>
+              <td class="column column-2 mn-column2-article" width="40%">
+                <table class="heading_block block-1" width="100%">
+                  <tr class={reverse.rever}>
+                    <Main311  news={news} reverse={reverse}/>
+                    <Main312  news={news} reverse={reverse}/>
+                  </tr>
+                </table>
+              </td> 
+            </tr> 
+           </tbody>
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}

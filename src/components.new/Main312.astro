@@ -8,16 +8,24 @@ type News = {
   summary: string
 }
 
-export interface Props {
-  news: News
+type Reverse = {
+  rever: string;
+  first: string;
+  last: string;
 }
 
-const {news} = Astro.props
+export interface Props {
+  news: News
+  reverse: Reverse
+}
+
+const {news, reverse} = Astro.props
 const {order,category, url, image, title, summary} = news
-console.log('right')
+console.log('right', reverse)
 ---
 
-<td class="column column-2 mn-column2-article" width="40%">
+<!-- ARTICLE TEXT -->
+<td class="column column-2 mn-column2-article" class={reverse.last} width="60%">
   <table class="heading_block block-1 " width="100%">
     <tr>
       <td class="pad mn-pad-title-h1">

@@ -4,8 +4,6 @@
 //const news = await response.json() 
 
 import Main31 from './Main31.astro';
-import Main32 from './Main32.astro';
-import Footer from './Footer.astro';
 
 type News = {
   order: number;
@@ -37,7 +35,7 @@ const  {news}  = Astro.props
 			const {order, url, image, title, summary}  = _news 
       return (
 
-				 /*  DIVIDER */
+      /* <!-- DIVIDER --> */
           <table class="row row-4 mn-row4" align="center" width="100%">
             <tbody>
               <tr>
