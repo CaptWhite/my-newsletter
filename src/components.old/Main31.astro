@@ -1,0 +1,86 @@
+---
+type News = {
+  order: number;
+  category: string;
+  url: string;
+  image: string;
+  title: string;
+  summary: string
+}
+
+export interface Props {
+  news: News
+}
+
+const {news} = Astro.props
+const {order,category, url, image, title, summary} = news
+---
+
+<!-- ARTICLE LEFT -->
+{
+order%2 == 1 &&
+<table class="row row-3" align="center" width="100%">
+  <tbody>
+    <tr>
+      <td>
+        
+        <table class="row-content stack mn-row-content-article" align="center" width="800" >
+          <tbody>
+            <tr>
+              <td class="column column-2 mn-column2-article" width="49">
+                <table class="heading_block block-1" width="100%">
+                  <tr>
+                    <td class="column column-1 mn-column1-article" width="90%">
+                      <table class="image_block block-1" width="100%">
+                        <tr>
+                          <td class="pad mn-pad-article-image">
+                            <div class="alignment mn-alignment-article-image" align="center">
+                              <div class="mn-div-article-image">
+                                <a href={url} tabindex="-1" rel="noreferrer noopener">
+                                  <img src={image}
+                                    target="_blank"
+                                    class="mn-img-article-image" width="266.666666666663"
+                                    alt={title}>
+                                </a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>  
+              <td class="column column-2 mn-column2-article" width="51%">
+                <table class="heading_block block-1 " width="100%">
+                  <tr>
+                    <td class="pad mn-pad-title-h1">
+                      <h1 class="mn-h1-article-title"><span class="tinyMce-placeholder">
+                        <a  href={url}
+                            target="_blank" class="mn-anchor-article-title" rel="noopener">{title}</a></span></h1>
+                    </td>
+                  </tr>
+                </table>
+                <table class="paragraph_block block-2 mn-paragraph_block2" width="100%">
+                  <tr>
+                    <td class="pad mn-pad-title-p">
+                      <div class="mn-div-title-p">
+                        <p class="mn-paragraph-article-p">{summary}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+}
+<!-- End of ARTICLE LEFT -->

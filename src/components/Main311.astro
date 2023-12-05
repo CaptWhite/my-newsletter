@@ -22,12 +22,15 @@ export interface Props {
 
 const {news, reverse} = Astro.props
 const {order,category, url, image, title, summary} = news
-console.log(reverse)
+
 ---
 
 <!-- ARTICLE PHOTO -->
+<td class={reverse.first} width="49%">
+  <table class="heading_block block-1" width="100%">
+    <tr>
 
-      <td class="column column-1 mn-column1-article" class={reverse.first} width="60%">
+      <td class="column column-1 mn-column1-article" width="60%">
         <table class="image_block block-1" width="100%">
           <tr>
             <td class="pad mn-pad-article-image">
@@ -45,3 +48,8 @@ console.log(reverse)
           </tr>
         </table>
       </td>
+    </tr>
+  </table>
+</td>
+
+      <!-- End of ARTICLE PHOTO -->

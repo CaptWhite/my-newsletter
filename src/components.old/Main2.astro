@@ -2,8 +2,9 @@
 //import { news } from '../data/news'
 //const response = await fetch("http://localhost:3000/news")
 //const news = await response.json() 
-
 import Main31 from './Main31.astro';
+import Main32 from './Main32.astro';
+import Footer from './Footer.astro';
 
 type News = {
   order: number;
@@ -29,13 +30,13 @@ const  {news}  = Astro.props
 
 
 ---
-
+   <!-- ARTICLE  CHAPTER -->
   {
     news.map ((_news) => {
 			const {order, url, image, title, summary}  = _news 
       return (
 
-      /* <!-- DIVIDER --> */
+    
           <table class="row row-4 mn-row4" align="center" width="100%">
             <tbody>
               <tr>
@@ -66,6 +67,8 @@ const  {news}  = Astro.props
             </tbody>
           </table>
 					<Main31 news={_news}/>
-     )
+					<Main32 news={_news}/>
+     ) 
     })
   }
+  <!-- End of ARTICLE CHAPTER-->
