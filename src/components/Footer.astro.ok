@@ -1,0 +1,167 @@
+---
+
+---
+
+ <!-- FOOTER -->
+<dic width="800px" >
+<table class="row row-10 ft1-row10" align="center" style="background: #DDD">
+	<tbody>
+		<tr>
+			<td>
+				<table class="row-content stack" align="center"  width="800">
+					<tbody>
+						<tr>
+							<td class="column column-1 ft1-column1" width="100%">
+								<table class="image_block block-1 ft1-image_block1" width="100%">
+									<tr>
+										<td class="pad ft1-pad">
+											<div class="alignment ft1-alignment" align="center">
+												<div class="ft1-div-img"> 
+													<img src="https://www.aster.cat//images/codi-etic.jpg" class="ft1-img" width="61"
+														alt="Aster, Agrupació Astronòmica de Barcelona, declarada Entitat d'utilitat pública segons resolució del Departament de Justícia de la Generalitat de Catalunya, número JUS/3230/2009 del 12/11/2009"
+														title="Aster, Agrupació Astronòmica de Barcelona, declarada Entitat d'utilitat pública segons resolució del Departament de Justícia de la Generalitat de Catalunya, número JUS/3230/2009 del 12/11/2009">
+												</div>
+												<div class="ft2-div-p">
+													<p class="ft2-p pad ft2-pad">Aster, Agrupació Astronòmica de Barcelona, declarada Entitat
+														d'utilitat pública segons resolució del Departament de Justícia de la Generalitat de
+														Catalunya, número JUS/3230/2009 del 12/11/2009</p>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<table class="row row-12 ft3-row12" align="center"  style="background: #DDD" >
+		<tbody>
+			<tr>
+				<td>
+					<table class="row-content stack ft3-row-content" align="center" >
+						<tbody>
+							<tr>
+								<td width="10%" ></td>
+								<td class="column column-1 ft3-column1" width="5%">
+									<table class="image_block block-1 ft3-image_block1" width="100%" 
+									 >
+										<tr>
+											<td class="pad ft3-pad-img">
+												<div class="alignment ft3-alignment-img" align="center" >
+													<div class="ft3-div-img"> 
+														<img src="https://imscdn.abcore.org/r/aster.cat/w46-h46/mm/image/web%20footer/LogoVU.jpg" alt=""
+															class="ft3-img" width="46"></div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="column column-2 ft3-column2" width="50%">
+									<table class="paragraph_block block-1 ft3-paragraph_block1" width="100%"
+										cellpadding="10">
+										<tr>
+											<td class="pad">
+												<div class="ft3-div-p">
+													<p class="ft3-p">Aster és membre de l'Associació d'Entitats Vil·la Urània</p>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="column column-3 ft3-image_block1" width="5%">
+									<table class="image_block block-1  ft3-image_block1" width="100%" 
+									 >
+										<tr>
+											<td class="pad ft3-pad-img">
+												<div class="alignment" align="center" >
+													<div class="ft3-div-img"> 
+														<img src="https://imscdn.abcore.org/r/aster.cat/w46-h46/mm/image/web%20footer/LogoVU.jpg" alt=""
+															class="ft3-img" width="46"></div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="10%"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+<table class="row row-13 ft4-row13" align="center"  style="background: #DDD">
+	<tbody>
+		<tr>
+			<td>
+				<table class="row-content stack .ft4-row-content" align="center" width="800">
+					<tbody>
+						<tr>
+							<td width="10%"></td>
+							<td class="column column-1 ft4-column1" width="10%">
+								<table class="image_block block-1 ft4-image_block1" width="100%" 
+								 >
+									<tr>
+										<td class="pad" class="ft4-pad-img">
+											<div class="alignment" align="center" class="ft4-alignment-img ft4-div-img">
+												<div style="max-width: 99px;">
+													<img
+														src="https://imscdn.abcore.org/r/aster.cat/w99-h103/mm/image/web%20footer/LOGO%20ASTER%20FUNDADA%20EL%201948.jpg"
+														width="99" alt=""></div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="column column-2 ft4-column2" width="60%">
+								<table class="paragraph_block block-1 ft4-paragraph_block1" width="100%"
+									cellpadding="10">
+									<tr>
+										<td class="pad">
+											<div class="ft4-div-p">
+												<p class="ft4-p">L'Ajuntament de Barcelona dóna suport a les nostres activitats</p>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td class="column column-3 ft4-column1" width="15%">
+								<table class="image_block block-1 ft4-image_block" width="100%" 
+								 >
+									<tr>
+										<td class="pad ft4-pad-img">
+											<div class="alignment ft4-alignment-img" align="center">
+												<div class="ft4-div-img2"> <img
+														src="https://imscdn.abcore.org/r/aster.cat/w149-h50/mm/image/web%20footer/Ajuntament%20BCN.png"
+														class="ft4-img" width="149"></div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td width="10%"></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+
+
+</td>
+</tr>
+</tbody>
+</table><!-- End -->
+</body>
+
+</html>

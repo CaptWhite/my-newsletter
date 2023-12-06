@@ -24,10 +24,17 @@ export interface Props {
 const {news } = Astro.props
 const {order,category, url, image, title, summary} = news
 const reverse: Reverse =  (order%2 == 0) 
+/*   ? {rever:'', 
+    first:'column column-2 mn-column2-article', 
+    last:'column column-2 mn-column2-article'}  
+  : {rever:'reverse', 
+    first:'column column-2 mn-column2-article first', 
+    last:'column column-2 mn-column2-article last'} 
+ */
   ? {rever:'reverse', 
     first:'column column-2 mn-column2-article first', 
     last:'column column-2 mn-column2-article last'} 
-  : {rever:'', 
+    : {rever:'', 
     first:'column column-2 mn-column2-article', 
     last:'column column-2 mn-column2-article'}  
 

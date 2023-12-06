@@ -1,6 +1,6 @@
 # build output
 dist/
-borar/
+
 # generated types
 .astro/
 .vscode/
@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Aplicativo
+borar/
+Cul-de-sac
