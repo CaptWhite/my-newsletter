@@ -5,4 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://CaptWhite.github.io',
   base: '/newsletter',
+  build: {
+    inlineStylesheets: 'always'
+  }
 })
