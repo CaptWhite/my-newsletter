@@ -1,18 +1,5 @@
 ---
-type News = {
-  order: number;
-  category: string;
-  url: string;
-  image: string;
-  title: string;
-  summary: string
-}
-
-type Reverse = {
-  rever: string;
-  first: string;
-  last: string;
-}
+import type { News, Reverse } from '../services/interfaces/newsletter.d.ts'
 
 export interface Props {
   news: News
@@ -20,11 +7,12 @@ export interface Props {
 }
 
 const {news, reverse} = Astro.props
+
 const {order,category, url, image, title, summary} = news
 ---
 
 <!-- ARTICLE TEXT -->
-<td class={reverse.last} width="51%">
+<td class={reverse.last} width="51%" >
   <table class="heading_block block-1 " width="100%">
     <tr>
       <td class="pad mn-pad-title-h1">

@@ -1,0 +1,41 @@
+---
+
+export interface Props {
+  category: string
+}
+
+const { category } = Astro.props
+
+---
+ <!-- CATEGORY -->     
+      <table class="row row-2" align="center" width="100%">
+            <tbody>
+              <tr>
+                <td>
+                  <table class="row-content stack .mn-row-content-headline" align="center" width="800">
+                    <tbody>
+                      <tr>
+                        <td class="column column-1 mn-column1-headline">
+                          <table class="heading_block block-1" width="100%" cellpadding="10"  >
+                            <tr>
+                              <td class="pad">
+                                <h1 class="mn-main-headline">
+                                  <span class="tinyMce-placeholder">{category}</span>
+                                </h1>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+ 
+      )
+    })  
+  }
+  <!-- End of CATEGORY -->
+ 
