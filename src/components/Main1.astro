@@ -8,9 +8,10 @@ import { newsSortedGrouped } from '../services/getnewsletters'
 
 export interface Props {
   news: News[]
+  widthPhotoDefault: number
 }
 
-const { news } = Astro.props
+const { news, widthPhotoDefault} = Astro.props
 
 const newsGruopedBy = newsSortedGrouped(news)
 ---
@@ -18,11 +19,8 @@ const newsGruopedBy = newsSortedGrouped(news)
   { 
     Object.keys(newsGruopedBy).map((category) => {
       return (
-
-      
-      
           <Category category={category} />
-          <Main2 news={newsGruopedBy[category]} />
+          <Main2 news={newsGruopedBy[category]} widthPhotoDefault={widthPhotoDefault} />
       )
     })  
   }

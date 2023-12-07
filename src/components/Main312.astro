@@ -4,15 +4,16 @@ import type { News, Reverse } from '../services/interfaces/newsletter.d.ts'
 export interface Props {
   news: News
   reverse: Reverse
+  widthPhoto: number
 }
 
-const {news, reverse} = Astro.props
+const {news, reverse, widthPhoto} = Astro.props
 
 const {order,category, url, image, title, summary} = news
----
 
+---
 <!-- ARTICLE TEXT -->
-<td class={reverse.last} width="51%" >
+<td class={reverse.last} width={ reverse.rever=='' ?      (widthPhoto)+'%' :  100-widthPhoto+'%'  } style={(widthPhoto==100 )   ? "display:none" : ""}>
   <table class="heading_block block-1 " width="100%">
     <tr>
       <td class="pad mn-pad-title-h1">

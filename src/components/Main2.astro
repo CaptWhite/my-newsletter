@@ -8,9 +8,10 @@ export interface Props {
 }
 export interface Props {
   news: News[]
+  widthPhotoDefault: number
 }
 
-const  {news}  = Astro.props
+const  {news, widthPhotoDefault}  = Astro.props
 
 
 ---
@@ -22,7 +23,7 @@ const  {news}  = Astro.props
       return (
 
           <Divider />
-					<Main31 news={_news}/>
+					<Main31 news={_news}  widthPhotoDefault={widthPhotoDefault}/>
      )
     })
   }

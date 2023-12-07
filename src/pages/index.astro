@@ -5,11 +5,12 @@ import Main1 from '../components/Main1.astro';
 import Footer from '../components/Footer.astro';
 import { getNewsletters } from '../services/getnewsletters'
 
-const {sequence, date, news } = await getNewsletters()
+const {sequence, date, widthPhoto, news } = await getNewsletters()
 ---
+
 <Layout>
     <Head seq={sequence} date={date}/>
-    <Main1 news={news}/>
+    <Main1 news={news} widthPhotoDefault={widthPhoto}/>
     <Footer/>
 
 

@@ -5,7 +5,7 @@ export type News = {
   image: string;
   title: string;
   summary: string
-  withPhoto: number
+  widthPhoto: number
 }
 
 export type Reverse = {

@@ -4,9 +4,10 @@ import type { News, Reverse } from '../services/interfaces/newsletter.d.ts'
 
 export async function getNewsletters() {
   //const response = await fetch("http://localhost:3000/data")
-const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
-const data = await response.json() 
-return data
+  const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
+  const data = await response.json() 
+  if (!data.widthPhoto) data['widthPhoto'] = 70
+  return data
 }
 
 
@@ -27,20 +28,13 @@ export function newsSortedGrouped (news) {
 }
 
 export function calculeClasesReverse(news) {
-const reverse: Reverse =  (news.order%2 == 0) 
-/*   ? {rever:'', 
-    first:'column column-2 mn-column2-article', 
-    last:'column column-2 mn-column2-article'}  
-  : {rever:'reverse', 
-    first:'column column-2 mn-column2-article first', 
-    last:'column column-2 mn-column2-article last'} 
- */
-  ? {rever:'reverse', 
-    first:'column column-2 mn-column2-article first', 
-    last:'column column-2 mn-column2-article last'} 
-    : {rever:'', 
-    first:'column column-2 mn-column2-article', 
-    last:'column column-2 mn-column2-article'}  
+const reverse: Reverse =  (news.order%2 == 1 || news.widthPhoto == 0 || news.widthPhoto == 100) 
+? {rever:'', 
+  first:'column column-2 mn-column2-article', 
+  last:'column column-2 mn-column2-article'}  
+: {rever:'reverse', 
+  first:'column column-2 mn-column2-article first', 
+  last:'column column-2 mn-column2-article last'} 
 
     return reverse
-}
+} 

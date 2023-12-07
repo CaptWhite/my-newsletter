@@ -5,15 +5,19 @@ import type { News } from '../services/interfaces/newsletter.d.ts'
 import { calculeClasesReverse } from '../services/getnewsletters'
 export interface Props {
   news: News;
+  widthPhotoDefault: number
 }
 
-const {news } = Astro.props
+const {news, widthPhotoDefault } = Astro.props
+if (!news.widthPhoto && news.widthPhoto>0) news['widthPhoto'] = widthPhotoDefault
 
-const reverse = calculeClasesReverse(news)
+const reverse = calculeClasesReverse(news) 
+
 ---
 
 
 <!-- ARTICLE -->
+
 {
 
 <table class="row row-3" align="center" width="100%">
@@ -25,11 +29,11 @@ const reverse = calculeClasesReverse(news)
           <tbody>
             <tr class={reverse.rever}>
                 {   reverse.rever == 'reverse'
-                    ? <Main311  news={news} reverse={reverse}/>
-                      <Main312  news={news} reverse={reverse}/>
+                    ? <Main311  news={news} reverse={reverse}  widthPhoto={news.widthPhoto}/>
+                      <Main312  news={news} reverse={reverse}  widthPhoto={news.widthPhoto}/>
                     :  
-                      <Main312  news={news} reverse={reverse}/>
-                      <Main311  news={news} reverse={reverse}/>
+                      <Main312  news={news} reverse={reverse}  widthPhoto={100-news.widthPhoto}/>
+                      <Main311  news={news} reverse={reverse}  widthPhoto={100-news.widthPhoto}/>
                 }
             </tr>
           </tbody>
