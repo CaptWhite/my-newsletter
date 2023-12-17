@@ -24,8 +24,7 @@ export async function getNewslettersLast() {
 
 export async function getNewsletters(page) {
   const {data} = await loadSpreadsheet()
-  const dataSelected = data.filter(item => item.id==page) 
-  console.log(dataSelected[0])  
+  const dataSelected = data.filter(item => item.id==page)  
   if (!dataSelected[0].widthPhoto[0]) dataSelected[0]['widthPhoto'] = 70
   return dataSelected[0]
 }
