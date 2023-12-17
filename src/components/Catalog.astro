@@ -1,0 +1,31 @@
+---
+import type { Newsletter } from '../services/interfaces/newsletter'
+import { getNewslettersAll } from '../services/getnewsletters'
+import Divider from './Divider.astro';
+import Card from './Card.astro';
+console.log ('catalog')
+const catalog: Newsletter[] = await getNewslettersAll()
+console.log (catalog)
+
+---
+
+<main style="max-width:1024px; max-width: 1024px; margin-left: auto; margin-right: auto; margin-bottom: 32px;">
+  <div style="display: grid;  gap: 32px; grid-template-columns: repeat(3, minmax(0, 1fr));">
+  {
+    catalog.map ((newsletter) => {
+     
+      const {id, date, news}  = newsletter 
+      
+      return (
+
+          <Card
+            id={id}
+            date={date}
+            title={news[0].title}
+            img={news[0].image}
+          />
+      )
+    })
+  }
+  </div>
+</main>

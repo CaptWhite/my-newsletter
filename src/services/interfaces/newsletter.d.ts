@@ -1,3 +1,11 @@
+
+export type Newsletter = {
+  id: number
+  date: string
+  widthPhoto?: number
+  news: News[]
+}
+
 export type News = {
   order: number;
   category: string;

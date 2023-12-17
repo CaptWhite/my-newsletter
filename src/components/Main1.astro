@@ -1,10 +1,10 @@
 ---
 //import { news } from '../data/news'
 //const response = await fetch("http://localhost:3000/news")
-import type { News } from '../services/interfaces/newsletter.d.ts'
+import type { News } from '../services/interfaces/newsletter'
 import Main2 from './Main2.astro';
 import Category from './Category.astro';
-import { newsSortedGrouped } from '../services/getnewsletters'
+import { newsSortedGrouped } from '../services/getnewsletters.ts'
 
 export interface Props {
   news: News[]
@@ -13,7 +13,9 @@ export interface Props {
 
 const { news, widthPhotoDefault} = Astro.props
 
+
 const newsGruopedBy = newsSortedGrouped(news)
+
 ---
  <!-- CATEGORY -->
   { 

@@ -1,14 +1,35 @@
+import type { Newsletter } from '../services/interfaces/newsletter.d.ts'
 
+import {loadSpreadsheet} from '../services/sheets.js'
+import type { Reverse } from '../services/interfaces/newsletter.d.ts'
 
-import type { News, Reverse } from '../services/interfaces/newsletter.d.ts'
+export async function loadNewsletters() {
+  const data = await loadSpreadsheet() 
+  return {}
+}
 
-export async function getNewsletters() {
-  //const response = await fetch("http://localhost:3000/data")
-  const response = await fetch("https://my-json-server.typicode.com/CaptWhite/aster-newsletter/data")
-  const data = await response.json() 
-  if (!data.widthPhoto) data['widthPhoto'] = 70
+export async function getNewslettersAll() {
+  const {data} = await loadSpreadsheet()
   return data
 }
+export async function getNewslettersLast() {
+  const {data} = await loadSpreadsheet()
+  const dataSelected = data.reduce((previous, current) => {
+    return current.id > previous.id ? current : previous;
+  });
+
+  if (!dataSelected.widthPhoto) data['widthPhoto'] = 70
+  return dataSelected
+}
+
+export async function getNewsletters(page) {
+  const {data} = await loadSpreadsheet()
+  const dataSelected = data.filter(item => item.id==page) 
+  console.log(dataSelected[0])  
+  if (!dataSelected[0].widthPhoto[0]) dataSelected[0]['widthPhoto'] = 70
+  return dataSelected[0]
+}
+
 
 
 export function newsSortedGrouped (news) {

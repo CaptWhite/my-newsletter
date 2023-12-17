@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 //export default defineConfig({});
 
 export default defineConfig({
-  site: 'https://CaptWhite.github.io',
+  site: 'https://AstroBCN.github.io',
   base: '/newsletter',
   build: {
     inlineStylesheets: 'always'

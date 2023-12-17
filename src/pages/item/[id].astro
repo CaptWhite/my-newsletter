@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Head from "../../components/Head.astro";
+import Main1 from '../../components/Main1.astro';
+import Footer from '../../components/Footer.astro';
+import Styles from '../../components/Styles.astro';
+import { getNewsletters, getNewslettersAll } from '../../services/getnewsletters'
+
+const { id } = Astro.params
+
+let newsletter
+if (id) newsletter = await getNewsletters(id)
+
+export const getStaticPaths = async () => {
+	const newsletters = await getNewslettersAll()
+
+	return newsletters.map((newsletter) => ({
+		params: {
+			id: newsletter.id,
+		},
+	}))
+}
+---
+
+<Layout>
+  <Head id={newsletter.id} date={newsletter.date}/>
+  <Main1 news={newsletter.news} widthPhotoDefault={newsletter.widthPhoto}/>
+  <Footer/>
+  <Styles />
+</Layout>

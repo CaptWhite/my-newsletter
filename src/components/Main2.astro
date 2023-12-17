@@ -1,6 +1,6 @@
 ---
 import Divider from './Divider.astro';
-import Main31 from './Main31.astro';
+import Main3 from './Main3.astro';
 import type { News } from '../services/interfaces/newsletter.d.ts'
 
 export interface Props {
@@ -13,17 +13,14 @@ export interface Props {
 
 const  {news, widthPhotoDefault}  = Astro.props
 
-
 ---
  <!-- DIVIDER -->
-
   {
     news.map ((_news) => {
 			const {order, url, image, title, summary}  = _news 
       return (
-
           <Divider />
-					<Main31 news={_news}  widthPhotoDefault={widthPhotoDefault}/>
+					<Main3 news={_news}  widthPhotoDefault={widthPhotoDefault}/>
      )
     })
   }

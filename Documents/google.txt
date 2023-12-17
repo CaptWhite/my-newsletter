@@ -1,0 +1,121 @@
+https://console.developers.google.com
+	Pulsar sobre un proyecto cualquiera
+	Proyecto nuevo:  googlesheet
+					 Sin organización
+					 Crear
+	Seleccionar proyecto googlesheet
+	Habilitar APIs y servicios
+		Gogle Drive API
+		Habilitar
+		Crear credenciales
+			api de google drive
+			datos de aplicaciones
+			siguiente
+			
+			googlesheet
+			crear y continuar
+			Rol: Editor
+			guardar y continuar
+			guardar y continuar
+			guardar y continuar
+			Volver al panel
+	
+	Credenciales
+		+ Crear credenciales
+			Cuenta de servicio
+				Nombre: asterbcn
+				Crear y continuar
+				Rol: Editor
+				Continuar
+				Listo
+	Credenciales
+		asterbcn@liquid-journal-408010.iam.gserviceaccount.com
+			Claves
+				Agregar claves
+				Crear clave nueva
+				JSON
+				Crear   (Se descarga un JSON)
+				
+				
+Como autenticarse  a GooogleSheets desde Node
+---------------------------------------------
+ChatGPT
+Puedes autenticarte a Google Sheets desde Node.js utilizando la API de Google Sheets y las credenciales de servicio. A continuación, te proporciono un ejemplo básico utilizando el paquete googleapis de Google.
+
+1. Crea un proyecto en la Consola de Desarrolladores de Google:
+
+	· Ve a la Consola de Desarrolladores de Google.
+	· Crea un nuevo proyecto o selecciona uno existente.
+	· Habilita la API de Google Sheets para tu proyecto.
+
+2. Configura las credenciales del proyecto:
+	· En la Consola de Desarrolladores, ve a "Credenciales".
+	· Crea una nueva cuenta de servicio y descarga el archivo JSON de las claves de la cuenta de servicio.
+3. Comparte tu hoja de cálculo con la cuenta de servicio:
+	· Abre tu hoja de cálculo en Google Sheets.
+	· Comparte la hoja de cálculo con la dirección de correo electrónico asociada a la cuenta de servicio.
+
+Instala el paquete googleapis:
+npm install googleapis
+
+javascript
+--------------------------------------
+const { google } = require('googleapis');
+const fs = require('fs');
+
+// Cargar las credenciales desde el archivo JSON descargado
+const credentials = require('path/to/your/credentials.json');
+
+// Crear un cliente JWT (JSON Web Token) para la autenticación
+const client = new google.auth.JWT(
+  credentials.client_email,
+  null,
+  credentials.private_key,
+  ['https://www.googleapis.com/auth/spreadsheets']
+);
+
+// ID de la hoja de cálculo
+const spreadsheetId = 'your-spreadsheet-id';
+
+// Realizar la autenticación y ejecutar una operación en la hoja de cálculo
+async function authenticateAndReadSheet() {
+  try {
+    // Autenticar al cliente
+    await client.authorize();
+
+    // Crear instancia de la API de Google Sheets
+    const sheets = google.sheets({ version: 'v4', auth: client });
+
+    // Ejemplo: Leer datos de la hoja de cálculo
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: 'Sheet1', // Especifica el nombre o rango de la hoja que quieres leer
+    });
+
+    const values = response.data.values;
+    console.log('Data:', values);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}
+
+// Llamar a la función de autenticación y lectura
+authenticateAndReadSheet();
+--------------------------------------------
+
+Recuerda reemplazar 'your-spreadsheet-id' con el ID real de tu hoja de cálculo y ajustar cualquier otro detalle según tus necesidades. Este ejemplo es básico y puedes extenderlo según tus requerimientos específicos.
+
+
+************************************************************
+ChatGPT
+Para descargar el archivo JSON de las claves de la cuenta de servicio desde la Consola de Desarrolladores de Google, sigue estos pasos:
+
+1. Ve a la Consola de Desarrolladores de Google.
+2. Selecciona tu proyecto o crea uno nuevo.
+3. En el panel de navegación izquierdo, haz clic en "Credenciales".
+4. En la pestaña "Credenciales", haz clic en el botón "Crear credenciales" y selecciona "Cuenta de servicio".
+5. Completa los campos requeridos para crear la cuenta de servicio, asigna un rol adecuado (por ejemplo, "Editor" para permitir la edición de hojas de cálculo), y haz clic en "Continuar".
+6. En la sección "Crear una clave de cuenta de servicio", elige el formato de clave como "JSON".
+7. Haz clic en "Crear". Se descargará un archivo JSON que contiene las claves de la cuenta de servicio.
+Guarda este archivo JSON en un lugar seguro y úsalo en tu aplicación Node.js para la autenticación. Ten en cuenta que este archivo contiene información sensible, así que no lo compartas públicamente y asegúrate de protegerlo adecuadamente.
+**********************************************************

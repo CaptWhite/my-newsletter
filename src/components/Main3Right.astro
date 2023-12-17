@@ -1,0 +1,44 @@
+---
+import type { News, Reverse } from '../services/interfaces/newsletter'
+
+export interface Props {
+  news: News
+  reverse: Reverse
+  widthPhoto: number
+}
+
+const {news, reverse, widthPhoto} = Astro.props
+
+const {order,category, url, image, title, summary} = news
+
+---
+<!-- ARTICLE TEXT -->
+<td class={reverse.last} width={ reverse.rever=='' ?      (widthPhoto)+'%' :  100-widthPhoto+'%'  } style={(widthPhoto==100 )   ? "display:none" : ""}>
+  <table class="heading_block block-1 " width="100%">
+    <tr>
+      <td class="pad mn-pad-title-h1">
+        <h1 class="mn-h1-article-title">
+          <span class="tinyMce-placeholder">
+            <a  href={url}
+              target="_blank" class="mn-anchor-article-title" rel="noopener">{title}
+            </a>
+          </span>
+        </h1>
+      </td>
+    </tr>
+    <!-- Aqui hay un final de tabla 1 -->
+  </table>
+  </table>
+  <!-- Aqui hay un final de tabla 2 -->
+  <table class="paragraph_block block-2 mn-paragraph_block2" width="100%">
+    <tr>
+      <td class="pad mn-pad-title-p">
+        <div class="mn-div-title-p">
+          <p class="mn-paragraph-article-p">{summary}
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</td>
+<!-- ARTICLE TEXT --> 

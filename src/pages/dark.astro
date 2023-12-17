@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Head from "../components/Head.astro";
+import Main1 from '../components/Main1.astro';
+import Footer from '../components/Footer.astro';
+import { getNewsletters, getNewslettersLast } from '../services/getnewsletters'
+import Styles from '../components/StylesDark.astro';
+
+const {id, sequence, date, widthPhoto, news } = await getNewslettersLast()
+---
+
+<Layout>
+    <Head id={id} date={date}/>
+    <Main1 news={news} widthPhotoDefault={widthPhoto}/>
+    <Footer/>
+    <Styles/>
+</Layout>

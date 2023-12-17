@@ -1,0 +1,19 @@
+---
+type Props = {
+	href?: string
+}
+
+const { href } = Astro.props
+---
+
+<>
+	{
+			<a
+				{href}
+				style="flex-direction: column; border-radius: 8px; border-width: 1px; background-color: rgb(31 41 55 / 1); border-color: rgb(55 65 81 /1); display: grid; margin:auto; max-height:300"
+				title='Click to see more details'
+			>
+				<slot />
+			</a>
+	}
+</>

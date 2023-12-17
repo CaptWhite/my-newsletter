@@ -1,0 +1,48 @@
+---
+import CardWrapper from './Card-wrapper.astro'
+type Props = {
+	id: number
+	date: string
+	title: string
+	img: string
+}
+
+
+const props = Astro.props
+const { id, date, title, img } = props
+
+---
+
+<CardWrapper 	href={`/newsletter/item/${id}`} >
+	
+<div style="background: lightblue; gap:50px">
+	
+	<picture>
+		<img
+			style='margin: auto;'
+			width={256}
+			height={256}
+			title={`Titol: ${title}`}
+			src={img}
+			alt={`Image`}
+		/>
+	</picture>
+
+	<header style='flex-grow: 1;height:fit-content; display:flex; flex-direction:column; gap:0.5rem; align-items: center'>
+		<h4 style="margin-block-start: 0px; margin-block-end: 0px;">
+			Newsletter #{id}
+		</h4>
+		<h3  style="margin-block-start: 0px; margin-block-end: 0px;font-weight: normal;
+	}">
+	  {date}
+		</h3>
+
+		<p 
+			style="font-weight: 300;  -webkit-line-clamp: 3;margin-block-start: 0px; margin-block-end: 0px">
+			{`Titol: ${title}`}
+		</p>
+	</header>
+</div>
+
+
+</CardWrapper>
