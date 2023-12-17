@@ -31,6 +31,9 @@ env:
 jobs:
   build:
     name: Build
+    env: 
+      PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
+      CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
