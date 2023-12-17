@@ -1,13 +1,14 @@
 
 import { google } from 'googleapis'
-import credentials from '../json/credentials.json' assert { type: "json" }
+const PRIVATE_KEY = import.meta.env.PRIVATE_KEY;
+const CLIENT_EMAIL = import.meta.env.CLIENT_EMAIL;
 
 /**
- * AUTHENTICATE GOOGLE *******************************************************
+ * AUTHENTICATE GOOGLE ******************************************************* 
  * @param {*} email    email to connect google
  * @param {*} key      private key for connection
  * @returns obj 
- */
+ */ 
 const authenticate = async (email, key) => {
 // Crear un cliente JWT (JSON Web Token) para la autenticación
 const client = new google.auth.JWT(email, null, key,  ['https://www.googleapis.com/auth/spreadsheets']);
@@ -19,7 +20,7 @@ let googleSheets = null
     // Crear instancia de la API de Google Sheets
     googleSheets = google.sheets({ version: 'v4', auth: client });
   } catch (error) {
-    console.error('Error:', error.message);
+    console.error('Error::', error.message);
   }
   return googleSheets
 };   
@@ -81,7 +82,7 @@ const createObj = async (googleSheets, sheetsList, SPREADSHEET_ID) => {
  * @param {*} spreadsheetId constant file         // Identifier sheets
  */
 export const sheet_to_obj = async (SPREADSHEET_ID) => {  
-  const googleSheets = await authenticate (credentials.client_email, credentials.private_key)
+  const googleSheets = await authenticate (CLIENT_EMAIL, PRIVATE_KEY.replace(/\\n/g, '\n'))
 
   const sheetsList =  await getSheetsList (googleSheets, SPREADSHEET_ID )
 
