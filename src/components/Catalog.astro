@@ -4,7 +4,6 @@ import { getNewslettersAll } from '../services/getnewsletters'
 import Divider from './Divider.astro';
 import Card from './Card.astro';
 const catalog: Newsletter[] = await getNewslettersAll()
-
 ---
 
 <main style="max-width:1024px; max-width: 1024px; margin-left: auto; margin-right: auto; margin-bottom: 32px;">
@@ -13,7 +12,6 @@ const catalog: Newsletter[] = await getNewslettersAll()
     catalog.map ((newsletter) => {
      
       const {id, date, news}  = newsletter 
-      
       return (
 
           <Card

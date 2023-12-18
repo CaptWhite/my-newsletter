@@ -64,7 +64,7 @@ const createObj = async (googleSheets, sheetsList, SPREADSHEET_ID) => {
   for (const sheet of sheetsList) {
     const cellObj = {}
     cellObj['id'] = sheet.properties.title
-    const rowsList =  await getRowsList(googleSheets, sheetsList[0], SPREADSHEET_ID)
+    const rowsList =  await getRowsList(googleSheets, sheet, SPREADSHEET_ID)
     rowsList.forEach( ( row, indexRow) => {
       row.forEach(( cell, indexColumn) => {
         cellObj[String.fromCharCode(65 + indexColumn) + (indexRow+1)] = cell.replaceAll('\\', '\\\\')
@@ -85,7 +85,7 @@ export const sheet_to_obj = async (SPREADSHEET_ID) => {
   const googleSheets = await authenticate (CLIENT_EMAIL, PRIVATE_KEY.replace(/\\n/g, '\n'))
 
   const sheetsList =  await getSheetsList (googleSheets, SPREADSHEET_ID )
-
+  
   const book = await createObj(googleSheets, sheetsList, SPREADSHEET_ID)
 
   return book

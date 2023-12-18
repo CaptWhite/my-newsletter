@@ -3,11 +3,6 @@ import type { Newsletter } from '../services/interfaces/newsletter.d.ts'
 import {loadSpreadsheet} from '../services/sheets.js'
 import type { Reverse } from '../services/interfaces/newsletter.d.ts'
 
-export async function loadNewsletters() {
-  const data = await loadSpreadsheet() 
-  return {}
-}
-
 export async function getNewslettersAll() {
   const {data} = await loadSpreadsheet()
   return data
